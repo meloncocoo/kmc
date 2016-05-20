@@ -1,0 +1,45 @@
+{
+  "html": "html",
+  "assets": "assets",
+  "destination": {
+    "css": "../../kmc-em-ui/app/styles/app",
+    "js": "../../src/main/resources/static/assets/js",
+    "skins": "../../src/main/resources/static/assets/skins",
+    "site": "../../src/main/resources/static/assets/site"
+  },
+  "source": {
+    "js": "src/js",
+    "less": "src/less",
+    "skins": "src/skins",
+    "site": "src/site"
+  },
+  "templates": {
+    "data": "src/templates/data",
+    "helpers": "src/templates/helpers",
+    "partials": "src/templates/partials",
+    "pages": "src/templates/pages"
+  },
+  "global": {
+    "path": "../global",
+    "fonts": "../global/fonts",
+    "vendor": "../global/vendor",
+    "css": "../global/css",
+    "js": "../global/js",
+    "less": "../global/src/less",
+    "skins": "../global/src/skins"
+  },
+  "bootstrap": {
+    "less": "../global/src/less/bootstrap",
+    "mixins": "../global/src/less/mixins"
+  },
+  "autoprefixerBrowsers": [
+    "Android 2.3",
+    "Android >= 4",
+    "Chrome >= 20",
+    "Firefox >= 24",
+    "Explorer >= 8",
+    "iOS >= 6",
+    "Opera >= 12",
+    "Safari >= 6"
+  ]
+}

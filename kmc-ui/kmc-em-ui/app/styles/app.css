@@ -1,6 +1,3 @@
-@import 'demo.css';
-@import 'new.css';
+@import 'global/bootstrap.css';
+@import 'global/bootstrap-extend.css';
 
-.app {
-	color: green;
-}
