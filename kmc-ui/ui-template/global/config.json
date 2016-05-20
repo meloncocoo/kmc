@@ -3,7 +3,7 @@
     "js": "../../kmc-em-ui/public/assets/js",
     "css": "../../kmc-em-ui/app/styles/global",
     "fonts": "../../kmc-em-ui/public/assets/fonts",
-    "vendor": "../../kmc-em-ui/public/assets/vendor"
+    "vendor": "../../kmc-em-ui/vendor"
   },
   "source": {
     "path": "src",
