@@ -1,0 +1,6 @@
+@import 'demo.css';
+@import 'new.css';
+
+.app {
+	color: green;
+}
