@@ -44,7 +44,7 @@ module.exports = function(grunt) {
   // CSS distribution task.
    // CSS distribution task.
   grunt.registerTask('less-compile', ['less:compileBootstrap', 'less:compileExtend']);
-  grunt.registerTask('dist-css', ['clean:css', 'less-compile', 'autoprefixer:css', 'csscomb:css', 'cssmin:css', 'notify:css']);
+  grunt.registerTask('dist-css', ['clean:css', 'less-compile', 'autoprefixer:css', 'csscomb:css', /*'cssmin:css', */'notify:css']);
 
   // Vendor distribution task.
   grunt.registerTask('dist-vendor', ['clean:vendor', 'less:vendor', 'autoprefixer:vendor', 'csscomb:vendor', 'cssmin:vendor', 'notify:vendor']);

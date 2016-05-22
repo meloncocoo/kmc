@@ -2,3 +2,9 @@
 @import 'global/bootstrap-extend.css';
 @import 'app/site.css';
 
+.test {
+    color: red;
+}
+.other {
+    color: black;
+}
