@@ -18,17 +18,17 @@
 		<div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
 			<ul class="nav navbar-toolbar">
 				<li class="hidden-float" id="toggleMenubar">
-					<a data-toggle="menubar" href="#" role="button">
-						<i class="icon hamburger hamburger-arrow-left">
-							<span class="sr-only">Toggle menubar</span>
-							<span class="hamburger-bar"></span>
-						</i>
-					</a>
+                    {{#menu-bar onClick=(action "toggleMenu")}}
+                        <i class="icon hamburger hamburger-arrow-left">
+                            <span class="sr-only">{{yield}}</span>
+                            <span class="hamburger-bar"></span>
+                        </i>
+                    {{/menu-bar}}
 				</li>
 				<li class="hidden-xs" id="toggleFullscreen">
-					<a class="icon icon-fullscreen" data-toggle="fullscreen" href="#" role="button">
-						<span class="sr-only">Toggle fullscreen</span>
-					</a>
+                    {{#menu-bar class="icon icon-fullscreen" onClick=(action "toggleFullScreen")}}
+                        <span class="sr-only">Toggle fullscreen</span>
+                    {{/menu-bar}}
 				</li>
 			</ul>
 			<ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
