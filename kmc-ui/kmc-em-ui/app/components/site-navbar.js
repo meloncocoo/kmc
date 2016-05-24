@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+    tagName: 'nav',
+    attributeBindings: ['role'],
+    role: 'navigation',
+    classNames: ["site-navbar", "navbar", "navbar-default", "navbar-mega"],
     folded: true,
     unfold: function() {
         $('body').removeClass('site-menubar-fold').addClass('site-menubar-unfold');
