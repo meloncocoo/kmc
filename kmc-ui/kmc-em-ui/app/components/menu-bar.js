@@ -3,7 +3,6 @@ import Ember from 'ember';
 export default Ember.Component.extend({
     tagName: 'a',
     attributeBindings: ['dataToggle:data-toggle', 'href', 'role'],
-    href: 'javascript:void(0);',
     dataToggle: 'menubar',
     role: 'button',
     click() {

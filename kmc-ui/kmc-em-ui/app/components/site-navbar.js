@@ -7,11 +7,11 @@ export default Ember.Component.extend({
     classNames: ["site-navbar", "navbar", "navbar-default", "navbar-mega"],
     folded: true,
     unfold: function() {
-        $('body').removeClass('site-menubar-fold').addClass('site-menubar-unfold');
+        Ember.$('body').removeClass('site-menubar-fold').addClass('site-menubar-unfold');
         this.set('folded', false);
     },
     fold: function() {
-        $('body').removeClass('site-menubar-unfold').addClass('site-menubar-fold');
+        Ember.$('body').removeClass('site-menubar-unfold').addClass('site-menubar-fold');
         this.set('folded', true);
     },
     actions: {
