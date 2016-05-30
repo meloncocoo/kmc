@@ -15,4 +15,6 @@ App = Ember.Application.extend({
 
 loadInitializers(App, config.modulePrefix);
 
+Breakpoints();
+
 export default App;

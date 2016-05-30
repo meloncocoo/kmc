@@ -22,5 +22,7 @@ module.exports = function(defaults) {
 
     app.import('bower_components/jquery-mmenu/source/jquery.mmenu.css');
 
+    app.import('bower_components/breakpoints.js/dist/breakpoints.js');
+
   return app.toTree();
 };
