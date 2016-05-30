@@ -9,6 +9,8 @@ export default Ember.Component.extend({
         var $body = Ember.$('body'),
             $html = Ember.$('html');
 
+        alert(Ember.$.mmenu);
+
         $html.removeClass('css-menubar').addClass('js-menubar');
 
         if ($body.is('.site-menubar-top')) {

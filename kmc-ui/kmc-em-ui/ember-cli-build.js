@@ -21,7 +21,7 @@ module.exports = function(defaults) {
   // along with the exports of each module as its value.
 
     app.import('bower_components/jquery-mmenu/source/jquery.mmenu.css');
-
+    app.import('bower_components/jquery-mmenu/
     app.import('bower_components/breakpoints.js/dist/breakpoints.js');
 
   return app.toTree();
