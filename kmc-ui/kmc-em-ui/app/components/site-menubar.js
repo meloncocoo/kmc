@@ -9,8 +9,6 @@ export default Ember.Component.extend({
         var $body = Ember.$('body'),
             $html = Ember.$('html');
 
-        alert(Ember.$.mmenu);
-
         $html.removeClass('css-menubar').addClass('js-menubar');
 
         if ($body.is('.site-menubar-top')) {
@@ -34,6 +32,10 @@ export default Ember.Component.extend({
         }, this));
 
         this.change();
+    },
+    didInsertElement: function() {
+        this._super(...arguments);
+        this.$().mmenu({offCanvas: false});
     },
     change: function() {
       var breakpoint = Breakpoints.current();

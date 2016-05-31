@@ -3,11 +3,11 @@
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
-  var app = new EmberApp(defaults, {
-    // Add options here
-  });
+    var app = new EmberApp(defaults, {
+        // Add options here
+    });
 
-  // Use `app.import` to add additional libraries to the generated
+    // Use `app.import` to add additional libraries to the generated
   // output files.
   //
   // If you need to use different assets in different
@@ -22,8 +22,9 @@ module.exports = function(defaults) {
 
 //    app.import('bower_components/jquery-mmenu/source/jquery.mmenu.css');
 //    app.import('bower_components/jquery-mmenu/source/jquery.mmenu.js');
-    app.import('jquery-mmenu/jquery.mmenu.min.js');
+    app.import('vendor/jquery-mmenu/jquery-mmenu.css');
+    app.import('vendor/jquery-mmenu/jquery.mmenu.min.js');
     app.import('bower_components/breakpoints.js/dist/breakpoints.js');
 
-  return app.toTree();
+    return app.toTree();
 };
