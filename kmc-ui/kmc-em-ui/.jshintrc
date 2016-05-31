@@ -2,7 +2,8 @@
   "predef": [
     "document",
     "window",
-    "-Promise"
+    "-Promise",
+    "Breakpoints"
   ],
   "browser": true,
   "boss": true,
@@ -14,7 +15,7 @@
   "forin": false,
   "immed": false,
   "laxbreak": false,
-  "newcap": true,
+  "newcap": false,
   "noarg": true,
   "noempty": false,
   "nonew": false,
@@ -28,6 +29,5 @@
   "white": false,
   "eqnull": true,
   "esnext": true,
-  "unused": true,
-  "Breakpoints": true
+  "unused": true
 }
