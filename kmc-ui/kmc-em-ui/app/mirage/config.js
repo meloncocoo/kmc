@@ -72,7 +72,13 @@ export default function() {
     });
 
   */
-  this.get('/site-menus');
+  this.get('/site-menus', function(db/*, request*/) {
+    return {
+      data: db['site-menus'].map(attrs => (
+        { type: 'site-menu', id: attrs.id, attributes: attrs }
+      ))
+    };
+  });
 }
 
 /*
