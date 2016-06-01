@@ -5,6 +5,10 @@ export default Ember.Component.extend({
     auto: true,
     init: function() {
         this._super();
+    },
+    didInsertElement: function() {
+        this._super(...arguments);
+        this.$().mmenu({offCanvas: false});
 
         var $body = Ember.$('body'),
             $html = Ember.$('html');
@@ -27,15 +31,11 @@ export default Ember.Component.extend({
             }
         }
 
-        Ember.$(this).on('changed.site.menubar', Ember.$.proxy(function() {
+        this.$().on('changed.site.menubar', Ember.$.proxy(function() {
             this.update();
         }, this));
 
         this.change();
-    },
-    didInsertElement: function() {
-        this._super(...arguments);
-        this.$().mmenu({offCanvas: false});
     },
     change: function() {
       var breakpoint = Breakpoints.current();
@@ -80,13 +80,13 @@ export default Ember.Component.extend({
         Ember.$('body').addClass('site-menubar-changing');
 
         doing.call(self);
-        Ember.$(this).trigger('changing.site.menubar');
+        this.$().trigger('changing.site.menubar');
 
         setTimeout(function() {
             callback.call(self);
             Ember.$('body').removeClass('site-menubar-changing');
 
-            Ember.$(this).trigger('changed.site.menubar');
+            this.$().trigger('changed.site.menubar');
         }, 500);
     },
     reset: function() {
@@ -116,6 +116,7 @@ export default Ember.Component.extend({
 
                 Ember.$('body').removeClass('site-menubar-unfold').addClass('site-menubar-fold');
                 this.set('folded',  true);
+                this.hoverTrigger()
 
             }, function() {
                 if (this.get('folded', null)) {
@@ -126,13 +127,35 @@ export default Ember.Component.extend({
     },
     unfold: function() {
     },
-    mouseEnter: function() {
-        Ember.$('body').addClass('site-menubar-hover');
-    },
-    mouseLeave: function() {
-        Ember.$('body').removeClass('site-menubar-hover');
+    hoverTrigger: function() {
+      var self = this,
+        $body = Ember.$('body');
+
+      if (this.get('folded')) {
+        this.$().on("mouseenter", function() {
+          $body.addClass('site-menubar-hover');
+
+          setTimeout(function() {
+            self.scrollable.enable();
+          }, 500);
+
+        }).on("mouseleave", function() {
+          $body.removeClass('site-menubar-hover');
+
+          var api = self.$().data('mmenu');
+          if (api) {
+            api.openPanel($('#mm-0'));
+          }
+
+          setTimeout(function() {
+            self.scrollable.disable();
+          }, 500);
+        });
+      }
     },
     hoverTriggerOff: function() {
+      this.$().off('mouseenter');
+      this.$().off('mouseleave');
     },
     toggle: function() {
         var breakpoint = Breakpoints.current();

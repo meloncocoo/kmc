@@ -1,64 +1,24 @@
 <ul class="site-menu">
     {{#each menus as |menu|}}
-    <li class="site-menu-item active">
+    <li class="site-menu-item active {{if menu.hasChildren ' has-sub'}}">
         <a class="animsition-link">
             <i class="site-menu-icon md-view-dashboard" aria-hidden="true"></i>
             <span class="site-menu-title">{{menu.label}}</span>
+            {{#if menu.hasChildren}}
+              <span class="site-menu-arrow"></span>
+            {{/if}}
         </a>
+        {{#if menu.hasChildren}}
+          <ul class="site-menu-sub">
+            {{#each menu.children as |item|}}
+            <li class="site-menu-sub">
+              <a class="animsition-link">
+                <span class="site-menu-title">{{item.label}}</span>
+              </a>
+            </li>
+            {{/each}}
+          </ul>
+        {{/if}}
     </li>
     {{/each}}
-    <li class="site-menu-item has-sub">
-        <a >
-        <i class="site-menu-icon md-view-compact" aria-hidden="true"></i>
-        <span class="site-menu-title">Layouts</span>
-        <span class="site-menu-arrow"></span>
-        </a>
-        <ul class="site-menu-sub">
-            <li class="site-menu-item">
-                <a class="animsition-link" >
-                    <span class="site-menu-title">Menu Collapsed</span>
-                </a>
-            </li>
-            <li class="site-menu-item">
-                <a class="animsition-link" >
-                    <span class="site-menu-title">Menu Expended</span>
-                </a>
-            </li>
-            <li class="site-menu-item">
-                <a class="animsition-link" >
-                    <span class="site-menu-title">Grid Scaffolding</span>
-                </a>
-            </li>
-            <li class="site-menu-item">
-                <a class="animsition-link" >
-                    <span class="site-menu-title">Layout Grid</span>
-                </a>
-            </li>
-            <li class="site-menu-item">
-                <a class="animsition-link" >
-                    <span class="site-menu-title">Different Headers</span>
-                </a>
-            </li>
-            <li class="site-menu-item">
-                <a class="animsition-link" >
-                    <span class="site-menu-title">Panel Transition</span>
-                </a>
-            </li>
-            <li class="site-menu-item">
-                <a class="animsition-link" >
-                    <span class="site-menu-title">Boxed Layout</span>
-                </a>
-            </li>
-            <li class="site-menu-item">
-                <a class="animsition-link" >
-                    <span class="site-menu-title">Two Columns</span>
-                </a>
-            </li>
-            <li class="site-menu-item">
-                <a class="animsition-link" >
-                    <span class="site-menu-title">Page Aside Fixed</span>
-                </a>
-            </li>
-        </ul>
-    </li>
 </ul>
