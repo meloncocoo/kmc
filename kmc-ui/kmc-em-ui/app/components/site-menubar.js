@@ -116,7 +116,7 @@ export default Ember.Component.extend({
 
                 Ember.$('body').removeClass('site-menubar-unfold').addClass('site-menubar-fold');
                 this.set('folded',  true);
-                this.hoverTrigger()
+                this.hoverTrigger();
 
             }, function() {
                 if (this.get('folded', null)) {
@@ -144,7 +144,7 @@ export default Ember.Component.extend({
 
           var api = self.$().data('mmenu');
           if (api) {
-            api.openPanel($('#mm-0'));
+            api.openPanel(Ember.$('#mm-0'));
           }
 
           setTimeout(function() {
