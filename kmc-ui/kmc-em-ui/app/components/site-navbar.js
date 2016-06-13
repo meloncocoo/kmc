@@ -5,6 +5,7 @@ export default Ember.Component.extend({
     attributeBindings: ['role'],
     role: 'navigation',
     classNames: ["site-navbar", "navbar", "navbar-default", "navbar-mega"],
+    feed: Ember.inject.service(),
     folded: true,
     unfold: function() {
         Ember.$('body').removeClass('site-menubar-fold').addClass('site-menubar-unfold');
@@ -15,6 +16,10 @@ export default Ember.Component.extend({
         this.set('folded', true);
     },
     actions: {
+        toggleSiteMenu() {
+            this.get('feed').trigger('toggle-site-menu', {});
+        },
+        /*
         toggleMenu: function() {
             if (this.folded === null || this.folded === true) {
                 this.unfold();
@@ -22,7 +27,7 @@ export default Ember.Component.extend({
                 this.fold();
             }
             return false;
-        },
+        },*/
         toggleFullScreen: function() {
             alert('Not implement.');
         }

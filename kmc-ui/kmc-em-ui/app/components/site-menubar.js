@@ -1,11 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+    feedService: Ember.inject.service('feed'),
     classNames: ["site-menubar"],
     auto: true,
-    init: function() {
-        this._super();
-    },
+    listen: function() {
+        this.get('feedService').on('toggle-site-menu', this, 'toggle');
+    }.on('init'),
     didInsertElement: function() {
         this._super(...arguments);
         this.$().mmenu({offCanvas: false});
@@ -126,6 +127,20 @@ export default Ember.Component.extend({
         }
     },
     unfold: function() {
+      if (this.get('folded') !== false) {
+        this.animate(function() {
+          Ember.$('body').removeClass('site-menubar-fold').addClass('site-menubar-unfold');
+          this.set('folded', false);
+          this.hoverTriggerOff();
+
+        }, function() {
+          this.scrollable.enable();
+
+          if (this.folded !== null) {
+            //$.site.resize();
+          }
+        });
+      }
     },
     hoverTrigger: function() {
       var self = this,
