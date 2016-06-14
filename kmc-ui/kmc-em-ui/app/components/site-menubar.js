@@ -249,8 +249,14 @@ export default Ember.Component.extend({
         }
     },
     actions: {
-        update: function() {
-            alert('update');
+      onClick(menu) {
+        if (menu.get('hasChildren')) return false;
+        this.get('menus').setEach('active', false);
+        menu.set('active', true);
+        while (menu && menu.get('parent.content')) {
+          menu.get('parent').set('active', true);
+          menu = menu.get('parent');
         }
+      }
     }
 });
