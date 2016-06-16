@@ -2,18 +2,18 @@
     {{#each menus as |menu|}}
         {{#unless menu.parent}}
         <li class="site-menu-item {{if menu.active 'active'}} {{if menu.hasChildren 'has-sub'}}" {{action "onClick" menu}}>
-            <a class="animsition-link" href="{{menu.href}}">
+            {{#link-to menu.route class="animsition-link"}}
                 <i class="site-menu-icon {{menu.icon}}" aria-hidden="true"></i>
                 <span class="site-menu-title">{{menu.label}}</span>
                 {{#if menu.hasChildren}}
                     <span class="site-menu-arrow"></span>
                 {{/if}}
-            </a>
+            {{/link-to}}
             {{#if menu.hasChildren}}
                 <ul class="site-menu-sub">
                 {{#each menu.children as |item|}}
                     <li class="site-menu-item {{if item.active 'active'}}" {{action "onClick" item}}>
-                        {{#link-to 'index' class="animsition-link"}}
+                        {{#link-to item.route class="animsition-link"}}
                             <span class="site-menu-title">{{item.label}}</span>
                         {{/link-to}}
                     </li>

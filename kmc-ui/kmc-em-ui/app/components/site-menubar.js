@@ -250,7 +250,7 @@ export default Ember.Component.extend({
     },
     actions: {
       onClick(menu) {
-        if (menu.get('hasChildren')) return false;
+        if (menu.get('hasChildren')) { return false; }
         this.get('menus').setEach('active', false);
         menu.set('active', true);
         while (menu && menu.get('parent.content')) {
