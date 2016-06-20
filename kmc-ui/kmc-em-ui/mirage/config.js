@@ -24,4 +24,17 @@ export default function() {
     http://www.ember-cli-mirage.com/docs/v0.2.0-beta.7/shorthands/
   */
     this.get('/site-menus');
+    /*
+    this.get('/siteMenus', function() {
+        return {
+            'siteMenus': [
+                { "id": "1", "label": "Dashboard", "icon": "md-view-dashboard", "route": "index" },
+                { "id": "2", "label": "系统管理", "icon": "md-settings", "children": [{
+                        "id": "2-1", "label": "用户管理", "route": "system.user", "parent": "2"
+                    }]
+                }
+            ]
+        };
+    });
+    */
 }
