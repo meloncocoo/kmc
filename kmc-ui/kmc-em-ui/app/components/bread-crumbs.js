@@ -1,0 +1,84 @@
+import Ember from 'ember';
+
+const {
+    get,
+    computed,
+    Component,
+    getWithDefault,
+    assert,
+    typeOf,
+    setProperties,
+    A: emberArray,
+    String: { classify },
+    getOwner
+} = Ember;
+
+const {
+    bool,
+    readOnly
+} = computed;
+
+export default Component.extend({
+    tagName: 'ol',
+    linkable: true,
+    reverse: false,
+    hasBlock: bool('template').readOnly(),
+    currentUrl: readOnly('applicationRoute.router.url'),
+    currentRouteName: readOnly('applicationRoute.controller.currentRouteName'),
+
+    routeHierarchy: computed('currentUrl', 'currentRouteName', 'reverse', {
+        get() {
+            const currentRouteName = getWithDefault(this, 'currentRouteName', false);
+            assert('[component:bread-crumbs] Could not find a currect route', currentRouteName);
+            const routeNames = currentRouteName.split('.');
+            const filteredRouteNames = this._ignoreRoutes(routeNames);
+            const crumbs = this._lookupBreadCrumb(routeNames, filteredRouteNames);
+
+            return get(this, 'reverse') ? crumbs.reverse() : crumbs;
+        }
+    }).readOnly(),
+    _ignoreRoutes(routeNames) {
+        return routeNames.filter((name) => !(name === 'index' || name === 'loading'));
+    },
+    _guessRoutePath(routeNames, name, index) {
+        const routes = routeNames.slice(0, index + 1);
+
+        if (routes.length === 1 ) {
+            let path = `${name}.index`;
+            return (this._lookupRoute(path)) ? path : name;
+        }
+
+        return routes.join('.');
+    },
+    _lookupRoute(routeName) {
+        return getOwner(this).lookup(`route:${routeName}`);
+    },
+    _lookupBreadCrumb(routeNames, filteredRouteNames) {
+        const defaultLinkable = get(this, 'linkable');
+        const pathLength = routeNames.length;
+        const breadCrumbs = filteredRouteNames.map((name, index) => {
+            const path = this._guessRoutePath(routeNames, name, index);
+            const route = this._lookupRoute(path);
+            const crumbLinkable = (index === pathLength - 1) ? false : defaultLinkable;
+
+            assert(`[component:bread-crumbs] \`route:${path}\` was not found`, route);
+
+            let breadCrumb = getWithDefault(route, 'pageInfo', {
+                title: classify(name)
+            });
+
+            if (typeOf(breadCrumb) === 'null') {
+                return;
+            } else {
+                setProperties(breadCrumb, {
+                    path,
+                    linkable: breadCrumb.hasOwnProperty('linkable') ? breadCrumb.linkable : crumbLinkable
+                });
+            }
+
+            return breadCrumb;
+        });
+
+        return emberArray(breadCrumbs.filter((breadCrumb) => typeOf(breadCrumb) !== 'undefined'));
+    }
+});

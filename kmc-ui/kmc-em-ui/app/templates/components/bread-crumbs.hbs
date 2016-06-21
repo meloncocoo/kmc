@@ -1,0 +1,23 @@
+{{#each routeHierarchy as |route|}}
+    {{#if hasBlock}}
+        {{yield this route}}
+    {{else}}
+        <li>
+            {{#if route.linkable}}
+                {{#link-to route.path class=linkClass}}
+                    {{#if hasBlock}}
+                        {{yield this route}}
+                    {{else}}
+                        {{route.title}}
+                    {{/if}}
+                {{/link-to}}
+            {{else}}
+                {{#if hasBlock}}
+                    {{yield this route}}
+                {{else}}
+                    {{route.title}}
+                {{/if}}
+            {{/if}}
+        </li>
+    {{/if}}
+{{/each}}

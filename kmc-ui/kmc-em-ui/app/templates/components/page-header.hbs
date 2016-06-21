@@ -1,0 +1,11 @@
+<div class="page-header">
+    {{bread-crumbs class="breadcrumb"}}
+    <h1 class="page-title">{{pageInfo.title}}</h1>
+    <div class="page-header-actions">
+        {{#each buttons as |button|}}
+            <button type="button" class="btn btn-sm btn-icon btn-primary btn-round" data-toggle="tooltip" data-original-title="{{button.label}}" {{action "send" button.action}}>
+                <i class="icon {{button.icon}}" aria-hidden="true"></i>
+            </button>
+        {{/each}}
+    </div>
+</div>
