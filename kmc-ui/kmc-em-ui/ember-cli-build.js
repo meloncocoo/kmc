@@ -20,11 +20,21 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-//    app.import('bower_components/jquery-mmenu/source/jquery.mmenu.css');
-//    app.import('bower_components/jquery-mmenu/source/jquery.mmenu.js');
     app.import('vendor/jquery-mmenu/jquery-mmenu.css');
     app.import('vendor/jquery-mmenu/jquery.mmenu.min.js');
     app.import('bower_components/breakpoints.js/dist/breakpoints.js');
 
+    // import datatables vendor    
+    app.import('vendor/datatables-bootstrap/dataTables.bootstrap.css');
+    app.import('vendor/datatables-fixedheader/dataTables.fixedHeader.css');
+    app.import('vendor/datatables-responsive/dataTables.responsive.css');
+    app.import('vendor/datatables/jquery.dataTables.js');
+    app.import('vendor/datatables-fixedheader/dataTables.fixedHeader.js');
+    app.import('vendor/datatables-bootstrap/dataTables.bootstrap.js');
+    app.import('vendor/datatables-responsive/dataTables.responsive.js');
+    app.import('vendor/datatables-tabletools/dataTables.tableTools.js');
+
+
+   
     return app.toTree();
 };
