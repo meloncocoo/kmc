@@ -1,0 +1,41 @@
+<div class="page-login-main">
+	<div class="brand visible-xs">
+		<img class="brand-img" src="/assets/images/logo.png" alt="...">
+		<h3 class="brand-text font-size-30">site.title</h3>
+	</div>
+	<h3 class="font-size-24">account.login.title</h3>
+	<p>account.login.tip</p>
+	{{#if errorMessage}}
+	<div class="alert alert-danger margin-bottom-5 margin-top-15">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<span>{{errorMessage}}</span>
+	</div>
+	{{else}}
+	<div class="alert alert-success margin-bottom-5 margin-top-15">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<span>${msg}</span>
+	</div>
+	{{/if}}
+	<form method="post" {{action 'authenticate' on='submit'}} autocomplete="off">
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+		<div class="form-group form-material floating">
+        {{input class="form-control empty" value=username id="username"}}<label class="floating-label" for="username">Username</label>
+		</div>
+		<div class="form-group form-material floating">
+			  {{input type="password" class="form-control empty" value=password id="password"}}<label class="floating-label" for="password">Password</label>
+		</div>
+		<div class="form-group clearfix">
+			<div class="checkbox-custom checkbox-inline checkbox-primary pull-left">
+				<input type="checkbox" id="remember" name="remember"> <label for="remember">RememberMe</label>
+			</div>
+			<a class="pull-right" href="javascript:;">Forget</a>
+		</div>
+		<button type="submit" class="btn btn-primary btn-block">Login</button>
+	</form>
+	<@layout.shortFooter />
+</div>
+

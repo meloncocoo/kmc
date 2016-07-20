@@ -74,10 +74,12 @@ body
 {
     height: 100%;
 }
+/*
 body
 {
     padding-top: 45px;
 }
+*/
 .site-menubar
 {
     font-family: 'Roboto', sans-serif;

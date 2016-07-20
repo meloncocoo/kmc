@@ -7,6 +7,7 @@ export default Ember.Component.extend({
     classNames: ["site-navbar", "navbar", "navbar-default", "navbar-mega"],
     feed: Ember.inject.service(),
     folded: true,
+    session: Ember.inject.service(),
     unfold: function() {
         Ember.$('body').removeClass('site-menubar-fold').addClass('site-menubar-unfold');
         this.set('folded', false);
@@ -30,6 +31,9 @@ export default Ember.Component.extend({
         },*/
         toggleFullScreen: function() {
             alert('Not implement.');
+        },
+        logout() {
+            this.get('session').invalidate();
         }
     }
 });

@@ -23,8 +23,9 @@ module.exports = function(defaults) {
     app.import('vendor/jquery-mmenu/jquery-mmenu.css');
     app.import('vendor/jquery-mmenu/jquery.mmenu.min.js');
     app.import('bower_components/breakpoints.js/dist/breakpoints.js');
+    app.import('vendor/bootstrap/bootstrap.js');
 
-    // import datatables vendor    
+    // import datatables vendor
     app.import('vendor/datatables-bootstrap/dataTables.bootstrap.css');
     app.import('vendor/datatables-fixedheader/dataTables.fixedHeader.css');
     app.import('vendor/datatables-responsive/dataTables.responsive.css');
@@ -34,7 +35,5 @@ module.exports = function(defaults) {
     app.import('vendor/datatables-responsive/dataTables.responsive.js');
     app.import('vendor/datatables-tabletools/dataTables.tableTools.js');
 
-
-   
     return app.toTree();
 };
