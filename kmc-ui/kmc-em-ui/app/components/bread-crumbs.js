@@ -38,7 +38,7 @@ export default Component.extend({
         }
     }).readOnly(),
     _ignoreRoutes(routeNames) {
-        return routeNames.filter((name) => !(name === 'index' || name === 'loading'));
+        return routeNames.filter((name) => !(name === 'index' || name === 'loading'/* || name === 'protected'*/));
     },
     _guessRoutePath(routeNames, name, index) {
         const routes = routeNames.slice(0, index + 1);
