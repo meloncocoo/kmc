@@ -14,13 +14,12 @@
     </div>
     {{/if}}
     <form method="post" {{action 'authenticate' on='submit'}} autocomplete="off">
-        {{m-input value=''}}
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <div class="form-group form-material floating">
-            {{input class="form-control empty" value=username id="username"}}<label class="floating-label" for="username">Username</label>
+            {{form/m-input class="form-control empty" value=username id="username"}}<label class="floating-label" for="username">Username</label>
         </div>
         <div class="form-group form-material floating">
-            {{input type="password" class="form-control empty" value=password id="password"}}<label class="floating-label" for="password">Password</label>
+            {{form/m-input type="password" class="form-control empty" value=password id="password"}}<label class="floating-label" for="password">Password</label>
         </div>
         <div class="form-group clearfix">
             <div class="checkbox-custom checkbox-inline checkbox-primary pull-left">

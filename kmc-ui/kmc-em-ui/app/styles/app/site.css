@@ -713,6 +713,7 @@ body.site-gridmenu-active
 
     min-height: -webkit-calc(100% - 44px);
     min-height:         calc(100% - 44px);
+    margin-top: 45px;
 
     background: #f3f4f5;
 }
