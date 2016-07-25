@@ -19,6 +19,7 @@ module.exports = function(environment) {
     },
 
     'ember-simple-auth': {
+        authenticationRoute: '/account/login',
         routeAfterAuthentication: '/'
     }
   };

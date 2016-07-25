@@ -60,8 +60,8 @@ module.exports = function(grunt) {
   grunt.registerTask('dist-site',  ['clean:site', 'dist-site-js', 'dist-site-css']);
 
   // Full distribution task.
-  grunt.registerTask('dist', [/*'dist-html', */'dist-css'/*, 'dist-js', 'dist-skins', 'dist-site'*/, 'notify:all']);
+  grunt.registerTask('dist', [/*'dist-html', */'dist-css'/*, 'dist-js', 'dist-skins'*/, 'dist-site-css', 'notify:all']);
 
   // Default task.
-  grunt.registerTask('default', ['dist-css']);
+  grunt.registerTask('default', ['dist-css', 'dist-site-css']);
 };

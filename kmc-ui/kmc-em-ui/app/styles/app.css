@@ -3,6 +3,7 @@
 @import 'fonts/glyphicons/glyphicons.css';
 @import 'fonts/brand-icons/brand-icons.css';
 @import 'fonts/material-design/material-design.css';
+@import 'app/css/pages/login.css';
 @import 'app/site.css';
 
 .test {

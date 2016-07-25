@@ -12,9 +12,11 @@ Router.map(function() {
     this.route('role');
   });
 
-  this.route('login');
-
   this.route('projected', { path: '/' });
+
+  this.route('account', function() {
+    this.route('login');
+  });
 });
 
 export default Router;

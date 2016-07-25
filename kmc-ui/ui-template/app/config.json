@@ -5,7 +5,7 @@
     "css": "../../kmc-em-ui/app/styles/app",
     "js": "../../src/main/resources/static/assets/js",
     "skins": "../../src/main/resources/static/assets/skins",
-    "site": "../../src/main/resources/static/assets/site"
+    "site": "../../kmc-em-ui/app/styles/app"
   },
   "source": {
     "js": "src/js",

@@ -19,9 +19,9 @@ module.exports = function () {
     },
     site: {
       expand: true,
-      cwd: '<%= config.destination.site %>/css',
+      cwd: '<%= config.destination.site %>',
       src: ['**/*.css', '!**/*.min.css'],
-      dest: '<%= config.destination.site %>/css'
+      dest: '<%= config.destination.site %>'
     }
   };
 };
